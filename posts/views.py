@@ -1,5 +1,4 @@
-from urllib import request
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
@@ -31,4 +30,16 @@ def delete(request, post_id):
     post = Post.objects.get(id=post_id)
     post.delete()
     return HttpResponseRedirect('/')
+
+def edit(request, post_id):
+     posts = Post.objects.get(id = post_id)
+     if request.method == 'POST':
+          form = PostForm(request.POST, request.FILES, instance=posts)
+          if form.is_valid():
+               form.save()
+               return HttpResponseRedirect('/')
+          else:
+               return HttpResponseRedirect("not valid") 
+     return render(request, 'edit.html',{'posts': posts})
+  
 
