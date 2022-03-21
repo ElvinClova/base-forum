@@ -6,6 +6,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
 
+# from cloudinary.forms import cl_init_js_callbacks      
+# from .models import Photo
+# from .forms import PhotoForm
+
+
 # Create your views here.
 def index(request):
     #if the method is POST
@@ -54,3 +59,16 @@ def like(request, post_id):
     posts.like += 1
     posts.save()
     return HttpResponseRedirect('/')
+
+
+
+# def upload(request):
+#   context = dict( backend_form = PhotoForm())
+
+#   if request.method == 'POST':
+#     form = PhotoForm(request.POST, request.FILES)
+#     context['posted'] = form.instance
+#     if form.is_valid():
+#         form.save()
+
+#   return render(request, 'upload.html', context)

@@ -1,5 +1,8 @@
-from sys import flags
+from email.mime import image
 from django.db import models
+from cloudinary.models import CloudinaryField
+
+
 
 class Post(models.Model):
     class Meta(object):
@@ -19,3 +22,8 @@ class Post(models.Model):
     like = models.PositiveIntegerField(
         'like', blank=True, default=0, db_index=True
     )
+    image = CloudinaryField(
+        'image', blank = True, db_index = True 
+    )
+
+    
