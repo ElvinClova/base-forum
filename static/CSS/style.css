@@ -20,13 +20,23 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+.post_form .forum  {
+  position: relative;
+  left: 75px;
+
+}
+
 .post_form input {
-  width: 70%;
+  width: 64%;
+  margin-bottom: 10px;
+}
+.post_form input[type="text"]{
+  width: 63%;
   margin-bottom: 10px;
 }
 
 .post_form textarea {
-  width: 70%;
+  width: 60%;
   padding: 10px;
   border: 1px solid #ccc;
 }
@@ -84,8 +94,63 @@ body {
   color: gray;
 }
 
+
+.posts a.btn-counter { 
+  margin-right: 39px;
+  color: royalblue;
+  background-color: #eee;
+  border: 1px solid antiquewhite;
+  position: relative;
+  right: -13px;
+  top: 5px;
+  height: 6px;
+  width: 6px;
+  z-index: 1;
+  zoom: 1; 
+}
+
+  
+
+
 @media screen and (max-width: 500px) {
   .posts li .name_body .name {
     font-size: 20px;
   }
 }
+
+
+
+
+/* for edit
+****************/
+
+.edit_post ul {
+  padding: 0;
+}
+
+.edit_post li {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 17px;
+
+}
+.edit_post li .logo {
+  flex-basis: 15%;
+}
+
+.edit_post li .logo img {
+    width: 90%;
+  }
+
+.edit_post li .edit_post_body {
+    flex-basis: 85%;
+  }
+  
+.edit_post li .edit_post_body .name {
+    font-weight: bold;
+  }
+  
+.edit_post li .edit_post_body .datetime {
+    color: gray;
+  }  

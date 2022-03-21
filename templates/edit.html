@@ -4,16 +4,42 @@
 {% load static %}
 
     <section class="content">
-        <form action="/" method="POST">
-            {% csrf_token %}
-            <input type="text" name="name" placeholder="name" required>
-            <textarea name="body" placeholder="edit post here" required></textarea>
-            <input type="submit" value="Save"/> 
-            <input type="button" value="cancel"/>
+        <section class="post_form">
+            <form action="/edit/{{post.id}}/" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <section class="forum">
+                <input type="text" name="name" placeholder="{{post.name}}" required>
+                <textarea name="body" placeholder= "{{post.body}}" required></textarea>
+                <input type="submit" value="Save"/> 
+                 <a class="cancel" href="/"> 
+                    <input type="button" id="delete" value="Cancel"/>
+                 </a>
+                </section>
+                
+                
             
             
         </form>
     </section>
+    <!-- <section class="edit_post"> -->
+        <!-- <ul>
+            
+            <li>
+                <div class="logo">
+                    <img src=" {%static 'img/user-icon.png'%}"/>
+                </div>
 
+                <div class="edit_post_body">
+                    <div class="name">{{ post.name }}</div>
+                    <div class="datetime">{{ post.created_at }}</div>
+                    <p> {{ post.body}} </p>
+                </div>
+                
+            </li>
+        </ul> -->
+        <!-- </section> -->
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="crossorigin="anonymous"></script>
+        <script src="{% static 'js/posts.js' %}"></script> -->
+    </section>    
 
 {% endblock %} 

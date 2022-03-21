@@ -15,3 +15,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(
         'Created DateTime', blank=True, auto_now_add=True
     )
+
+    like = models.PositiveIntegerField(
+        'like', blank=True, default=0, db_index=True
+    )

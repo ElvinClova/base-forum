@@ -1,5 +1,8 @@
+
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, HttpResponseRedirect
+
+
 from .models import Post
 from .forms import PostForm
 
@@ -19,7 +22,7 @@ def index(request):
             return HttpResponseRedirect(form.erros.as_json())
 
     # Get all posts, limit = 20
-    posts= Post.objects.all()[:20]
+    posts= Post.objects.all().order_by('-created_at')[:20]
 
     # Show
     return render(request, 'posts.html',
@@ -32,14 +35,22 @@ def delete(request, post_id):
     return HttpResponseRedirect('/')
 
 def edit(request, post_id):
-     posts = Post.objects.get(id = post_id)
-     if request.method == 'POST':
-          form = PostForm(request.POST, request.FILES, instance=posts)
-          if form.is_valid():
-               form.save()
-               return HttpResponseRedirect('/')
-          else:
+    posts = Post.objects.get(id = post_id)
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES, instance=posts)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+        else:
                return HttpResponseRedirect("not valid") 
-     return render(request, 'edit.html',{'posts': posts})
-  
+    
+    form = PostForm
 
+    return render(request, 'edit.html',  {'post': posts, 'form': form })
+
+def like(request, post_id):
+    print(post_id)
+    posts = Post.objects.get(id = post_id)
+    posts.like += 1
+    posts.save()
+    return HttpResponseRedirect('/')

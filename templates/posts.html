@@ -5,11 +5,13 @@
     <section class="post_form">
         <form action="/" method="POST">
             {% csrf_token %}
+            <section class="forum">
             <input type="text" name="name" placeholder="Name" required>
             <textarea name="body" placeholder="Tell us anything." required></textarea>
             <input type="submit" value="Post"/>
+            
         </form>
-
+            </section>
     </section>
         <section class="posts">
             <ul>
@@ -34,8 +36,12 @@
                 <div class="name">{{ post.name }} </div> 
                 <div class="datetime"> {{ post.created_at }}</div>
                 <p> {{ post.body }} </p>
-                
-
+                <div class="like_button">
+                        <p>
+                            <a href="/like/{{ post.id }}/"  title="Like it" class="btn-counter" data-count="0"><span style="padding: 9px;">&#128077;</span>{{post.like}}</a>
+                        </p>
+                        </p>
+                </div>    
                 </div>
 
              </li>
