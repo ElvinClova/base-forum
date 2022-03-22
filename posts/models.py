@@ -1,6 +1,8 @@
 from email.mime import image
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
+
 
 
 
@@ -25,5 +27,3 @@ class Post(models.Model):
     image = CloudinaryField(
         'image', blank = True, db_index = True 
     )
-
-    

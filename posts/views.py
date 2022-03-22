@@ -7,15 +7,15 @@ from .models import Post
 from .forms import PostForm
 
 # from cloudinary.forms import cl_init_js_callbacks      
-# from .models import Photo
-# from .forms import PhotoForm
+from .models import image
+# from .forms import ImageForm
 
 
 # Create your views here.
 def index(request):
     #if the method is POST
     if request.method == 'POST':
-        form = PostForm(request.POST)
+        form = PostForm(request.POST,request.FILES)
         #if the form is valid
         if form.is_valid():
             #Yes, save
@@ -63,12 +63,11 @@ def like(request, post_id):
 
 
 # def upload(request):
-#   context = dict( backend_form = PhotoForm())
+#    context = dict( backend_form = image())
+#    if request.method == 'POST':
+#      form = image(request.POST, request.FILES)
+#      context['posted'] = form.instance
+#      if form.is_valid():
+#          form.save()
 
-#   if request.method == 'POST':
-#     form = PhotoForm(request.POST, request.FILES)
-#     context['posted'] = form.instance
-#     if form.is_valid():
-#         form.save()
-
-#   return render(request, 'upload.html', context)
+#    return render(request, 'upload.html', context)
