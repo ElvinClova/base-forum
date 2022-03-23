@@ -74,6 +74,7 @@ pickleshare==0.7.5
 Pillow==8.2.0
 prompt-toolkit==3.0.18
 psutil==5.8.0
+psycopg2-binary==2.8.6
 pycparser==2.20
 pycryptodomex==3.10.1
 Pygments==2.9.0
@@ -110,4 +111,3 @@ Werkzeug==0.16.1
 whitenoise==5.2.0
 WTForms==2.3.3
 yarl==1.6.3
-
