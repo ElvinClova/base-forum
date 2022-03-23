@@ -12,31 +12,80 @@ body {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
+/*header
+***************/
+
+.background  {
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  
+}
+
+.background img {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.text {
+  width: 100%;
+  position: absolute;
+  left: 50px;
+}
+
+.text h1 {
+  color:whitesmoke;
+  font-size: 45px;
+  
+}
+
+
 
 /* posts
 **************/
+
 .post_form {
   padding: 20px 40px;
   border-bottom: 1px solid #ccc;
+  position: relative;
+  text-align: left;
 }
 
 .post_form .forum  {
   position: relative;
-  left: 75px;
+  
 
 }
-
 .post_form input {
-  width: 64%;
+  width: 66%;
   margin-bottom: 10px;
 }
+
+.post_form input[type="submit"] {
+  width: 67.5%;
+  margin-bottom: 10px;
+}
+
+.post_form input[type="button"] {
+  width: 67.5%;
+  margin-bottom: 10px;
+}
+
 .post_form input[type="text"]{
-  width: 63%;
+  width: 66%;
   margin-bottom: 10px;
 }
 
 .post_form textarea {
-  width: 60%;
+  width: 63.5%;
   padding: 10px;
   border: 1px solid #ccc;
 }
